@@ -1,4 +1,10 @@
 Gymrat::Application.routes.draw do
+  root :to => "home#index"
+
+  devise_for :users
+
+  #root :to => "application"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
