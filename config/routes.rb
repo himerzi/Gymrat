@@ -1,5 +1,5 @@
 Gymrat::Application.routes.draw do
-  get "root/index"
+  match "home" => 'home#index', :defaults => {:id => '4e760bf95cf4290afd00000a'}
 
   get "climber/index"
   get "climber/show"

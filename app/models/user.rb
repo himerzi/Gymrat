@@ -6,7 +6,7 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  field :username
+  #field :username
   field :climbs, type: Hash
   field :climb_score, type: Integer
   validates_presence_of :username
