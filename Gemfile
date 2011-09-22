@@ -5,10 +5,14 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+gem 'kaminari' 
+gem "will_paginate", :git => "https://github.com/mislav/will_paginate.git", :tag => 'v3.0.pre4'
+
 #db
 gem "mongoid", "~> 2.2"
 gem "bson_ext", "~> 1.3"
-
+#gem 'voteable_mongo'
+gem 'voteable_mongo', :git => 'https://github.com/angelim/voteable_mongo.git', :branch => 'master'
 #authentication
 gem "devise", "~> 1.4.5"
 

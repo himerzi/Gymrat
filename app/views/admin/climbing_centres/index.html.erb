@@ -1,0 +1,25 @@
+<h1>Listing climbing_centres</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>City</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @climbing_centres.each do |climbing_centre| %>
+  <tr>
+    <td><%= climbing_centre.name %></td>
+    <td><%= climbing_centre.city %></td>
+    <td><%= link_to 'Show', climbing_centre %></td>
+    <td><%= link_to 'Edit', edit_climbing_centre_path(climbing_centre) %></td>
+    <td><%= link_to 'Destroy', climbing_centre, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Climbing centre', new_climbing_centre_path %>

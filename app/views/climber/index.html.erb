@@ -1,0 +1,28 @@
+<h1>Climber Rankings</h1>
+
+<%= will_paginate @climbers %>
+
+<table>
+  <tr>
+	<th>Points</th>
+	<th>Username</th>
+    <th>Kind</th>
+    <th>Grade</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @climbers.each do |climber| %>
+  <tr>
+	<td><%= climber.climb_score %></td>
+	<td><%= climber.username %></td>
+    <td><%= link_to 'Show' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Back', climbing_centres_path %>

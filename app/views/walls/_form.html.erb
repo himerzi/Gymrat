@@ -1,0 +1,30 @@
+<%= debug params %>
+<%= form_for([@wall.climbing_centre, @wall]) do |f| %>
+  <% if @wall.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wall.errors.count, "error") %> prohibited this wall from being saved:</h2>
+
+      <ul>
+      <% @wall.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :kind %><br />
+    <%= f.select :kind, Wall::Kinds %>
+  </div>
+  <div class="field">
+    <%= f.label :wall_number %><br />
+    <%= f.text_field :number%>
+  </div>
+  <div class="field">
+    <%= f.label :grade %><br />
+    <%= f.select :grade, Wall::FGrades %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

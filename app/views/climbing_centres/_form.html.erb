@@ -1,0 +1,25 @@
+<%= form_for(@climbing_centre) do |f| %>
+  <% if @climbing_centre.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@climbing_centre.errors.count, "error") %> prohibited this climbing_centre from being saved:</h2>
+
+      <ul>
+      <% @climbing_centre.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

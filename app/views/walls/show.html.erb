@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Kind:</b>
+  <%= @wall.kind %>
+</p>
+<p>
+  <b>Voters:</b>
+  <%= @wall.voters %>
+</p>
+
+<p>
+  <b>Grade:</b>
+  <%= @wall.grade %>
+</p>
+
+
+<%= link_to 'Edit', edit_climbing_centre_wall_path(@centre, @wall) %> |
+<%= link_to 'Back', climbing_centre_walls_path %>

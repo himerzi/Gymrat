@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/angelim/voteable_mongo.git
+  revision: 3e8e1800f5640b00326ab47e2b2e47879c201cff
+  specs:
+    voteable_mongo (0.9.2)
+
+GIT
+  remote: https://github.com/mislav/will_paginate.git
+  revision: af6ec16d65eca4195f35a6a232163aa7b6726b4c
+  tag: v3.0.pre4
+  specs:
+    will_paginate (3.0.pre4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -55,6 +68,8 @@ GEM
     jquery-rails (1.0.14)
       railties (~> 3.0)
       thor (~> 0.14)
+    kaminari (0.12.4)
+      rails (>= 3.0.0)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -128,8 +143,11 @@ DEPENDENCIES
   coffee-rails (~> 3.1.0)
   devise (~> 1.4.5)
   jquery-rails
+  kaminari
   mongoid (~> 2.2)
   rails (= 3.1.0)
   sass-rails (~> 3.1.0)
   turn
   uglifier
+  voteable_mongo!
+  will_paginate!

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @climbing_centre.name %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @climbing_centre.city %>
+</p>
+
+
+<%= link_to 'Edit', edit_climbing_centre_path(@climbing_centre) %> |
+<%= link_to 'Back', climbing_centres_path %>

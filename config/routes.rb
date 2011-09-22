@@ -1,5 +1,23 @@
 Gymrat::Application.routes.draw do
-  root :to => "home#index"
+  get "root/index"
+
+  get "climber/index"
+  get "climber/show"
+
+  resources :climbing_centres do
+    resources :walls, :except => :index do
+      member do
+        get :vote_up
+        get :climbed_it
+      end
+    end
+  end
+  root :to => "climbing_centres#show", :defaults => {:id => '4e760bf95cf4290afd00000a'}
+  
+  namespace "admin" do
+    match '/' => 'admin#index'
+  end
+
 
   devise_for :users
 

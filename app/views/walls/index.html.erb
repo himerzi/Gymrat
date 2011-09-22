@@ -1,0 +1,28 @@
+<h1><%= "Listing #{@centre} walls" %></h1>
+
+<%= paginate @walls %>
+
+<table>
+  <tr>
+    <th>Kind</th>
+    <th>Grade</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @walls.each do |wall| %>
+  <tr>
+    <td><%= wall.kind %></td>
+    <td><%= wall.climbing_centre.name %></td>
+    <td><%= wall.grade %></td>
+    <td><%= link_to 'Show', climbing_centre_wall_path(wall.climbing_centre, wall) %></td>
+    <td><%= link_to 'Edit', edit_climbing_centre_wall_path(wall.climbing_centre, wall) %></td>
+    <td><%= link_to 'Destroy', climbing_centre_wall_path(wall.climbing_centre, wall), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Wall', new_climbing_centre_wall_path %>
