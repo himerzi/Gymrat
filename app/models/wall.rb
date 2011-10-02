@@ -3,6 +3,7 @@ class Wall
   #include Mongo::Voteable
   
   embedded_in :climbing_centre
+  has_and_belongs_to_many :users
   
   field :kind, type: String
   field :grade, type: String
@@ -22,6 +23,7 @@ class Wall
   #voteable self, :up => +1, :down => -1, :index => true  
   #voteable
   def vote(direction, user_id)
+    return false if voters.include? user_id
     case direction
     when :up
       push(:voters, user_id)

@@ -1,4 +1,5 @@
 class ClimbingCentresController < ApplicationController
+  before_filter :only_if_admin, :except => [:index, :show]
   # GET /climbing_centres
   # GET /climbing_centres.json
   def index
@@ -29,8 +30,8 @@ class ClimbingCentresController < ApplicationController
   # GET /climbing_centres/new
   # GET /climbing_centres/new.json
   def new
+    
     @climbing_centre = ClimbingCentre.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @climbing_centre }

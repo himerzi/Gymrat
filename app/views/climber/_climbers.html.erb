@@ -4,9 +4,7 @@
 <table>
   <tr>
 	<th>Points</th>
-	<th>Username</th>
-    <th>Kind</th>
-    <th>Grade</th>
+	<th>Name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,7 +14,7 @@
 <% @climbers.each do |climber| %>
   <tr>
 	<td><%= climber.climb_score %></td>
-	<td><%= climber.username %></td>
+	<td><%= climber.first_name %></td>
     <td><%= link_to 'Show' %></td>
   </tr>
 <% end %>

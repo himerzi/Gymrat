@@ -14,12 +14,12 @@
     <td><%= climbing_centre.name %></td>
     <td><%= climbing_centre.city %></td>
     <td><%= link_to 'Show', climbing_centre %></td>
-    <td><%= link_to 'Edit', edit_climbing_centre_path(climbing_centre) %></td>
-    <td><%= link_to 'Destroy', climbing_centre, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Edit', edit_climbing_centre_path(climbing_centre) if current_user.try(:admin?) %></td>
+    <td><%= link_to 'Destroy', climbing_centre, confirm: 'Are you sure?', method: :delete if current_user.try(:admin?) %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Climbing centre', new_climbing_centre_path %>
+<%= link_to 'New Climbing centre', new_climbing_centre_path if current_user.try(:admin?) %>

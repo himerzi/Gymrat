@@ -4,7 +4,8 @@ gem 'rails', '3.1.0'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
+#gem 'ruby-debug19', :require => ‘ruby-debug’
+gem "ruby-debug19"
 gem 'kaminari' 
 gem "will_paginate", :git => "https://github.com/mislav/will_paginate.git", :tag => 'v3.0.pre4'
 

@@ -1,6 +1,4 @@
 Gymrat::Application.routes.draw do
-  match "home" => 'home#index', :defaults => {:id => '4e760bf95cf4290afd00000a'}
-
   get "climber/index"
   get "climber/show"
 
@@ -12,7 +10,7 @@ Gymrat::Application.routes.draw do
       end
     end
   end
-  root :to => "climbing_centres#show", :defaults => {:id => '4e760bf95cf4290afd00000a'}
+  root :to => 'home#index', :defaults => {:id => '4e8656b35cf42910b3000005'}
   
   namespace "admin" do
     match '/' => 'admin#index'

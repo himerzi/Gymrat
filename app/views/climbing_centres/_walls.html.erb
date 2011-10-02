@@ -21,17 +21,17 @@
     <td><%= wall.kind %></td>
     <td><%= wall.grade %></td>
     <td><%= link_to 'Show', climbing_centre_wall_path(@climbing_centre,wall) %></td>
-    <td><%= link_to 'Vote Up !', vote_up_climbing_centre_wall_path(wall.climbing_centre, wall) %></td>
-    <td><%= link_to 'I climbed it', climbed_it_climbing_centre_wall_path(wall.climbing_centre, wall) %></td>
-    <td><%= link_to 'Edit', edit_climbing_centre_wall_path(wall.climbing_centre, wall) %></td>
-    <td><%= link_to 'Destroy', climbing_centre_wall_path(wall.climbing_centre, wall), confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Vote Up !', vote_up_climbing_centre_wall_path(wall.climbing_centre, wall) if hasnt_voted?(wall)%></td>
+    <td><%= link_to 'I climbed it', climbed_it_climbing_centre_wall_path(wall.climbing_centre, wall) if hasnt_climbed_this?(wall) %></td>
+    <td><%= link_to 'Edit', edit_climbing_centre_wall_path(wall.climbing_centre, wall) if current_user.try(:admin?)%></td>
+    <td><%= (link_to 'Destroy', climbing_centre_wall_path(wall.climbing_centre, wall), confirm: 'Are you sure?', method: :delete) if current_user.try(:admin?) %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Wall', new_climbing_centre_wall_path(@climbing_centre) %>
+<%= link_to 'New Wall', new_climbing_centre_wall_path(@climbing_centre) if current_user.try(:admin?)%>
 
-<%= link_to 'Edit', edit_climbing_centre_path(@climbing_centre) %> |
+<%= link_to 'Edit', edit_climbing_centre_path(@climbing_centre) if current_user.try(:admin?) %>
 <%= link_to 'Back', climbing_centres_path %>

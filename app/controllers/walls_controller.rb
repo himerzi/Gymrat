@@ -1,4 +1,6 @@
 class WallsController < ApplicationController
+  before_filter :only_if_admin, :except => [:index, :show, :new,:climbed_it,:vote_up]
+  before_filter :current_user? , :only => [:climbed_it,:vote_up]
   # GET /walls
   # GET /walls.json
   def index
@@ -90,23 +92,14 @@ class WallsController < ApplicationController
   end
   def climbed_it
     @centre = ClimbingCentre.find(params[:climbing_centre_id])
-    @wall = @centre.walls.find(params[:id])
-    if current_user
-      current_user.climbed_it(@wall)
-      redirect_to climbing_centre_path(@centre), :notice => "Added to your tick-list !"
-    else
-      redirect_to climbing_centre_path(@centre), :notice => "You must be logged in to do this !"
-    end
+    @wall = @centre.walls.find(params[:id])    
+    redirect_to root_url, :notice => current_user.climbed_it(@wall) ? "Added to your tick-list !" : "Allready on your tick-list"
   end
   def vote_up
     @centre = ClimbingCentre.find(params[:climbing_centre_id])
     @wall = @centre.walls.find(params[:id])
-    if current_user
-      @wall.vote(:up, current_user.id)
-      redirect_to climbing_centre_path(@centre), :notice => "Thanks for voting !"
-    else
-      redirect_to climbing_centre_path(@centre), :notice => "You must be logged in to vote !"
-    end
+    @wall.vote(:up, current_user.id)
+    redirect_to root_url, :notice => "Thanks for voting !"
   end
   
 end

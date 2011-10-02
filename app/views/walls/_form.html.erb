@@ -11,18 +11,21 @@
       </ul>
     </div>
   <% end %>
+<%= collection_select :widget, :category, @categories, :id, :name, :input_html => {:rel => "/categories/subcategories_by_category"} %>
+
 
   <div class="field">
     <%= f.label :kind %><br />
-    <%= f.select :kind, Wall::Kinds %>
+    <%= f.select :kind, Wall::Kinds, :input_html => {:rel => "/categories/subcategories_by_category"} %>
   </div>
   <div class="field">
     <%= f.label :wall_number %><br />
     <%= f.text_field :number%>
   </div>
-  <div class="field">
+  <div class="field" id="gradelist">
     <%= f.label :grade %><br />
-    <%= f.select :grade, Wall::FGrades %>
+	<%= f.collection_select :wall, :grade, @grades, :id, :name %>
+    <%=# f.select :grade, Wall::FGrades %>
   </div>
   <div class="actions">
     <%= f.submit %>
