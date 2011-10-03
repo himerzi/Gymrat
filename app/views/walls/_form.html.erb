@@ -1,7 +1,7 @@
 <%= debug params %>
 <%= form_for([@wall.climbing_centre, @wall]) do |f| %>
   <% if @wall.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation"> 
       <h2><%= pluralize(@wall.errors.count, "error") %> prohibited this wall from being saved:</h2>
 
       <ul>
@@ -11,23 +11,20 @@
       </ul>
     </div>
   <% end %>
-<%= collection_select :widget, :category, @categories, :id, :name, :input_html => {:rel => "/categories/subcategories_by_category"} %>
 
-
-  <div class="field">
+ 
+  <div id="kind" class="field">
     <%= f.label :kind %><br />
-    <%= f.select :kind, Wall::Kinds, :input_html => {:rel => "/categories/subcategories_by_category"} %>
+    <%= f.select :kind, Wall::Kinds, :input_html => {:rel => "/kinds"} %>
   </div>
   <div class="field">
     <%= f.label :wall_number %><br />
     <%= f.text_field :number%>
   </div>
-  <div class="field" id="gradelist">
-    <%= f.label :grade %><br />
-	<%= f.collection_select :wall, :grade, @grades, :id, :name %>
-    <%=# f.select :grade, Wall::FGrades %>
-  </div>
+ <div id="gradelist" class="field">
+  </div> 
+
   <div class="actions">
-    <%= f.submit %>
+	<%= f.submit %>
   </div>
 <% end %>

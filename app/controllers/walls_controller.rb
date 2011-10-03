@@ -102,4 +102,19 @@ class WallsController < ApplicationController
     redirect_to root_url, :notice => "Thanks for voting !"
   end
   
+  def grades_by_kind
+    
+    if params[:id].present?
+      
+      @grades = (params[:id] == "Boulder" ? Wall::BGrades : Wall::FGrades)
+      #debugger
+    else
+      @grades = []
+    end
+
+    respond_to do |format|
+      format.js
+    end
+  end
+  
 end
