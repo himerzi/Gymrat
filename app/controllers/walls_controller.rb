@@ -107,7 +107,7 @@ class WallsController < ApplicationController
     if params[:id].present?
       
       @grades = (params[:id] == "Boulder" ? Wall::BGrades : Wall::FGrades)
-      #debugger
+
     else
       @grades = []
     end

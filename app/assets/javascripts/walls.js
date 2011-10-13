@@ -2,42 +2,31 @@ jQuery.ajaxSetup({
  'beforeSend': function(xhr) { xhr.setRequestHeader("Accept", "text/javascript") }
 });
 
-$.fn.subSelectWithAjax = function() {
-  var that = this;
- 
+jQuery.fn.submitWithAjax = function() {
   this.change(function() {
-	alert("hallo");
-    $.post(that.attr('rel'), {id: that.val()}, null, "script");
-  });
-}
-
-jQuery(function($) {
-  // when the #country field changes
-  $("#kind").change(function() {
-    // make a POST call and replace the content
-	$.post('/kinds', {id: $("#wall_kind").val()}, null, "script");
-    //jQuery.get('/profiles/update_state_select/' + country, function(data){
-      //  $("#addressStates").html(data);
-    //})this.getAttribute('rel')
+    $.post('/kinds', {id: $("#wall_kind").val()}, null, "script");
     return false;
-  });
+  })
+  return this;
+};
+$(document).ready(function() {
+  $("#kind").submitWithAjax();
+});
+//jQuery(function($) {
+//  // when the #kind field changes
+//  $("#kind").change(function() {
+//    // make a POST call and replace the content
+//	//$.post('/kinds', {id: $("#wall_kind").val()}, null, "script");
+//	$.post('/kinds', {id: $("#wall_kind").val()},
+//		function(data){
+//			alert("data loaded");
+//		});
+//    return false;
+//  });
 
-})
+//})
 
 
-//$(document).ready($("#kind").subSelectWithAjax(););
 
-//$(document).ready(function(){
-//	$('#kind').change(function () { 
-//		//alert("hallo");
-//		if($("#gradelist").val() == "Leading") {
-//			
-//		}
-//		else{
-//
-//		} 
-//
-//	   });
-//});
 
 

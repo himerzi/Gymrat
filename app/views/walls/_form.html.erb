@@ -22,6 +22,8 @@
     <%= f.text_field :number%>
   </div>
  <div id="gradelist" class="field">
+	<%= f.label :grade  %><br />
+	<%= f.select :grade, Wall::BGrades %>
   </div> 
 
   <div class="actions">

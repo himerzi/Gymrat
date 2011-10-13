@@ -1,1 +1,18 @@
-$("#gradelist").append("<%= label :gbabe, 'Grade'%></br><%=select_tag :gbabe, options_for_select(@grades) %>");
+$("#gradelist").html(escape_javascript('<label for="gbabe_grade">Grade</label></br><select id="gbabe" name="gbabe"><option value="5">5</option>
+<option value="5">5</option>
+<option value="6A">6A</option>
+<option value="6A">6A</option>
+<option value="6B">6B</option>
+<option value="6B">6</option>
+<option value="6C">6C</option>
+<option value="6C">6C</option>
+<option value="7A">7A</option>
+<option value="7A">7A</option>
+<option value="7B">7B</option>
+<option value="7B">7B</option>
+<option value="8A">8A</option>
+<option value="8A">8A</option>
+<option value="8B">8B</option>
+<option value="8B">8</option>
+<option value="9A">9A</option>
+<option value="9A">9A</option></select>'));
