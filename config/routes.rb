@@ -3,7 +3,7 @@ Gymrat::Application.routes.draw do
   get "climber/show"
   
   #ajax dependent drop down list route
-  match 'kinds', :controller=>'walls', :action => 'grades_by_kind'
+  match 'kinds', :controller=>'walls', :action => 'get_drop_down_options'
   
   resources :climbing_centres do
     resources :walls, :except => :index do

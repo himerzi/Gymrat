@@ -1,7 +1,11 @@
 module ApplicationHelper
   def hasnt_voted?(wall)
     if current_user
-      return (wall.voters.include?(current_user.id)) ? false : true
+      if wall.voters
+        return (wall.voters.include?(current_user.id)) ? false : true
+      else
+        return true
+      end
     end
   end
   def hasnt_climbed_this?(wall)

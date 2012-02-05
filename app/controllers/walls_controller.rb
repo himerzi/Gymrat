@@ -116,5 +116,19 @@ class WallsController < ApplicationController
       format.js
     end
   end
+  def get_drop_down_options
+   
+    if params[:selected].present?
+      #[{"label":"Option 1","value":1},{"label":"Option 2","value":2}]
+      @grades = (params[:selected] == "Boulder" ? Wall::JSONBGrades : Wall::JSONFGrades)
+    else
+      @grades = '[]'
+    end
+    #Use val to find records
+    #options = @grades.collect{|x| "'#{x.id}' : '#{x.label}'"}    
+    #render :text => "{#{options.join(",")}}" 
+    render :text => @grades 
+
+  end
   
 end
