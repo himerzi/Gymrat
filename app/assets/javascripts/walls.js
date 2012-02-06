@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	
             $('#wall_kind').cascade({
                 source: "/kinds",
                 cascaded: "wall_grade"
@@ -75,9 +76,6 @@ $(document).ready(function() {
         extraParams: {}
     }
 })(jQuery);
-
-
-
 
 //$("#kind").change(function(){
 //  var url = '/kinds?category_id=' + $(this).val()

@@ -95,11 +95,15 @@ class WallsController < ApplicationController
     @wall = @centre.walls.find(params[:id])    
     redirect_to root_url, :notice => current_user.climbed_it(@wall) ? "Added to your tick-list !" : "Allready on your tick-list"
   end
+  # POST with an up vote parameter
   def vote_up
     @centre = ClimbingCentre.find(params[:climbing_centre_id])
     @wall = @centre.walls.find(params[:id])
     @wall.vote(:up, current_user.id)
-    redirect_to root_url, :notice => "Thanks for voting !"
+
+    respond_to do |format|
+        format.json { render json: @wall}
+    end
   end
   
   def grades_by_kind

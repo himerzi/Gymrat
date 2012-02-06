@@ -13,15 +13,15 @@
     <th></th>
     <th></th>
   </tr>
-
+<a id="test" href="#">asdfs</a>
 <% @walls.each do |wall| %>
   <tr>
-	<td><%= wall.pt %></td>
+	<td id="<%=wall.id%>"><%= wall.pt %></td>
 	<td><%= wall.number %></td>
     <td><%= wall.kind %></td>
     <td><%= wall.grade %></td>
-    <td><%= link_to 'Show', climbing_centre_wall_path(@climbing_centre,wall) %></td>
-    <td><%= link_to 'Vote Up !', vote_up_climbing_centre_wall_path(wall.climbing_centre, wall) if hasnt_voted?(wall)%></td>
+    <td><%= link_to 'Show', climbing_centre_wall_path(@climbing_centre,wall)  %></td>
+    <td><%= link_to 'Vote Up !',"#",:wall_id => wall.id, :centre_id => wall.climbing_centre.id, :class => "voteUp" if hasnt_voted?(wall)%></td>
     <td><%= link_to 'I climbed it', climbed_it_climbing_centre_wall_path(wall.climbing_centre, wall) if hasnt_climbed_this?(wall) %></td>
     <td><%= link_to 'Edit', edit_climbing_centre_wall_path(wall.climbing_centre, wall) if current_user.try(:admin?)%></td>
     <td><%= (link_to 'Destroy', climbing_centre_wall_path(wall.climbing_centre, wall), confirm: 'Are you sure?', method: :delete) if current_user.try(:admin?) %></td>
