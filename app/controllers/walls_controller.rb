@@ -90,11 +90,13 @@ class WallsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
   def climbed_it
     @centre = ClimbingCentre.find(params[:climbing_centre_id])
     @wall = @centre.walls.find(params[:id])    
     redirect_to root_url, :notice => current_user.climbed_it(@wall) ? "Added to your tick-list !" : "Allready on your tick-list"
   end
+  
   # POST with an up vote parameter
   def vote_up
     @centre = ClimbingCentre.find(params[:climbing_centre_id])
@@ -106,20 +108,6 @@ class WallsController < ApplicationController
     end
   end
   
-  def grades_by_kind
-    
-    if params[:id].present?
-      
-      @grades = (params[:id] == "Boulder" ? Wall::BGrades : Wall::FGrades)
-
-    else
-      @grades = []
-    end
-
-    respond_to do |format|
-      format.js
-    end
-  end
   def get_drop_down_options
    
     if params[:selected].present?
@@ -128,11 +116,7 @@ class WallsController < ApplicationController
     else
       @grades = '[]'
     end
-    #Use val to find records
-    #options = @grades.collect{|x| "'#{x.id}' : '#{x.label}'"}    
-    #render :text => "{#{options.join(",")}}" 
     render :text => @grades 
-
   end
   
 end

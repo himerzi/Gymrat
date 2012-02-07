@@ -5,7 +5,9 @@ Gymrat::Application.routes.draw do
   #ajax dependent drop down list route
   match 'kinds', :controller=>'walls', :action => 'get_drop_down_options'
   
+  #ajax submission of up votes
   post "/climbing_centres/:climbing_centre_id/walls/:id" => "walls#vote_up", :constraints => {:commit => "upVote"}
+  
   resources :climbing_centres do
     resources :walls, :except => :index do
       member do
@@ -14,7 +16,7 @@ Gymrat::Application.routes.draw do
       end
     end
   end
-  root :to => 'home#index', :defaults => {:id => '4e8656b35cf42910b3000005'}
+  root :to => 'home#index', :defaults => {:id => '4f3083c05cf429195f000004'}
   
   namespace "admin" do
     match '/' => 'admin#index'
